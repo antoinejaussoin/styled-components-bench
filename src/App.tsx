@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import SC from './SC';
+import SCAndStyles from './SCAndStyles';
+import CSSModules from './CSSModules';
 
 const App: React.FC = () => {
+  const [tab, setTab] = useState<'SC' | 'SCWithStyles' | 'CSSModules'>('SC');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => setTab('SC')}>SC</button>
+      <button onClick={() => setTab('SCWithStyles')}>SC With Styles</button>
+      <button onClick={() => setTab('CSSModules')}>CSS Modules + SCSS</button>
+      <div>Current: {tab}</div>
+      {tab === 'SC' && <SC />}
+      {tab === 'SCWithStyles' && <SCAndStyles />}
+      {tab === 'CSSModules' && <CSSModules />}
     </div>
   );
-}
+};
 
 export default App;
