@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BenchProps } from './utils';
+import { BenchProps } from '../utils';
 
-const SC: React.SFC<BenchProps> = ({ matrix }) => {
+const SCAndStyles: React.SFC<BenchProps> = ({ matrix }) => {
   return (
     <>
       {matrix.map((row, i) => (
         <Row key={i}>
           {row.map((color, j) => (
-            <Block key={j} color={color} />
+            <Block key={j} style={{ backgroundColor: color }} />
           ))}
         </Row>
       ))}
@@ -16,18 +16,13 @@ const SC: React.SFC<BenchProps> = ({ matrix }) => {
   );
 };
 
-interface BlockProps {
-  color: string;
-}
-
 const Row = styled.div`
   display: flex;
 `;
 
-const Block = styled.div<BlockProps>`
+const Block = styled.div`
   width: 10px;
   height: 10px;
-  background-color: ${props => props.color};
 `;
 
-export default SC;
+export default SCAndStyles;

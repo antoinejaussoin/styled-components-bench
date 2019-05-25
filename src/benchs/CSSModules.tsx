@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CSSModules.module.scss';
-import { BenchProps } from './utils';
+import { BenchProps } from '../utils';
 
 const SCAndStyles: React.SFC<BenchProps> = ({ matrix }) => {
   return (
