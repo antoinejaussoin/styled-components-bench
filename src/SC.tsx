@@ -1,14 +1,10 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { generateMatrix } from './utils';
+import { BenchProps } from './utils';
 
-const SC: React.SFC = () => {
-  const [size, setSize] = useState(20);
-  const matrix = useMemo(() => generateMatrix(size), [size]);
-  const increaseSize = useCallback(() => setSize(size => size + 10), []);
+const SC: React.SFC<BenchProps> = ({ matrix }) => {
   return (
     <>
-      <button onClick={increaseSize}>Increase</button>
       {matrix.map((row, i) => (
         <Row key={i}>
           {row.map((color, j) => (

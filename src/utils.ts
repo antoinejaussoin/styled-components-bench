@@ -18,3 +18,7 @@ export const generateMatrix = (size: number) => {
   }
   return matrix;
 };
+
+export interface BenchProps {
+  matrix: string[][];
+}
